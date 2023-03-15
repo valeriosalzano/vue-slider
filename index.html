@@ -20,7 +20,7 @@
 
         <div class="main-container d-flex">
             <div class="slider-container">
-                <div class="slider">
+                <div class="slider" @mouseover="autoPlayPause" @mouseleave="autoPlayStart">
                     <div class="img-container">
                         <img :src="slides[current].image" :alt="slides[current].title">
                     </div>

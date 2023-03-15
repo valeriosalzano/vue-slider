@@ -52,8 +52,10 @@ const { createApp } = Vue
             }
         },
         autoPlayPause(){
-            clearInterval(this.autoPlayOn);
-            this.autoPlayOn = null;
+            if (this.autoPlayOn){
+                clearInterval(this.autoPlayOn);
+                this.autoPlayOn = null;
+            }
         },
         autoPlayInvert(){
             this.autoPlayForward = !this.autoPlayForward;
