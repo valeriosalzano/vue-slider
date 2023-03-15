@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font awesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- myStyle  -->
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Vue Slider</title>
+</head>
+    
+<body>
+    <div id="app">
+
+        <header>
+            <h1>Vue Slider</h1>
+        </header>
+
+        <div class="main-container d-flex">
+            <div class="slider-container">
+                <div class="slider">
+                    <div class="img-container">
+                        <img :src="slides[current].image" :alt="slides[current].title">
+                    </div>
+                    <div class="text-container">
+                        <h2>{{slides[current].title}}</h2>
+                        <p>{{slides[current].text}}</p>
+                    </div>
+                </div>
+            </div>
+            <aside class="thumbnails-container">
+                <div class="arrow" id="prev-arrow" @click="prevImg()"><i class="fa-solid fa-arrow-up"></i></div>
+                <div class="thumbnails">
+                    <img v-for="(slide,index) in slides" :src="slide.image" :alt="slide.title" :class="isHighlighted(index)" @click="clickOnThumb(index)">
+                </div>
+                <div class="arrow" id="next-arrow" @click="nextImg()"><i class="fa-solid fa-arrow-down"></i></div>
+            </aside>
+        </div>
+
+        <footer>
+            <div class="btns-container">
+                <button v-show="!autoPlayOn" id="play"><i class="fa-solid fa-play"></i></button>
+                <button v-show="autoPlayOn" id="pause"><i class="fa-solid fa-pause"></i></button>
+                <button id="invert"><i class="fa-solid fa-repeat"></i></button>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- vue script  -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- my script  -->
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+
+</html>
