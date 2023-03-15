@@ -9,6 +9,10 @@ html {
     color: white;
 }
 
+[v-cloak] {
+    display: none;
+  }  
+
 /* utility */
 .d-flex {
     display: flex;
