@@ -27,7 +27,8 @@ const { createApp } = Vue
             }
         ],
         current : 0,
-        autoPlayOn : 1,
+        autoPlayOn : null,
+        autoPlayForward : true,
       }
     },
     methods: {
@@ -43,5 +44,22 @@ const { createApp } = Vue
         clickOnThumb(index){
             this.current = index;
         },
+        autoPlayStart(){
+            if (!this.autoPlayOn){
+                this.autoPlayOn = setInterval(()=>{
+                    this.autoPlayForward ? this.nextImg() : this.prevImg()
+                },3000);
+            }
+        },
+        autoPlayPause(){
+            clearInterval(this.autoPlayOn);
+            this.autoPlayOn = null;
+        },
+        autoPlayInvert(){
+            this.autoPlayForward = !this.autoPlayForward;
+        },
+    },
+    mounted() {
+        this.autoPlayStart();
     }
   }).mount('#app')

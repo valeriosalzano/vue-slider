@@ -41,9 +41,9 @@
 
         <footer>
             <div class="btns-container">
-                <button v-show="!autoPlayOn" id="play"><i class="fa-solid fa-play"></i></button>
-                <button v-show="autoPlayOn" id="pause"><i class="fa-solid fa-pause"></i></button>
-                <button id="invert"><i class="fa-solid fa-repeat"></i></button>
+                <button v-show="!autoPlayOn" id="play" @click="autoPlayStart"><i class="fa-solid fa-play"></i></button>
+                <button v-show="autoPlayOn" id="pause" @click="autoPlayPause"><i class="fa-solid fa-pause"></i></button>
+                <button id="invert" @click="autoPlayInvert"><i class="fa-solid fa-repeat"></i></button>
             </div>
         </footer>
 
