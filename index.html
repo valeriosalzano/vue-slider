@@ -18,9 +18,9 @@
             <h1>Vue Slider</h1>
         </header>
 
-        <div class="main-container d-flex">
+        <div class="main-container d-flex" @mouseover="autoPlayPause" @mouseleave="autoPlayStart">
             <div class="slider-container">
-                <div class="slider" @mouseover="autoPlayPause" @mouseleave="autoPlayStart">
+                <div class="slider">
                     <div class="img-container">
                         <img :src="slides[current].image" :alt="slides[current].title">
                     </div>
