@@ -46,8 +46,13 @@ const { createApp } = Vue
         },
         autoPlayStart(){
             if (!this.autoPlayOn){
+                // versione con alternativa ad arrow function
+                // let that = this;
+                // this.autoPlayOn = setInterval(function(){
+                //     console.log(that);
+                //     that.autoPlayForward ? that.nextImg() : that.prevImg();
                 this.autoPlayOn = setInterval(()=>{
-                    this.autoPlayForward ? this.nextImg() : this.prevImg()
+                    this.autoPlayForward ? this.nextImg() : this.prevImg();
                 },3000);
             }
         },
